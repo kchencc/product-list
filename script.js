@@ -1,44 +1,31 @@
-function convertPrices() {
-    const rate = parseFloat(document.getElementById('exchangeRate').value);
-    const traderJoesTable = document.getElementById('traderJoesTable');
-    const costcoTable = document.getElementById('costcoTable');
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("products.json")
+        .then(response => response.json())
+        .then(data => {
+            populateTable("traderJoesTable", data.traderJoes);
+            populateTable("costcoTable", data.costco);
+        });
+});
 
-    // 假設這裡有一個函數來獲取商品列表
-    const traderJoesProducts = getTraderJoesProducts();
-    const costcoProducts = getCostcoProducts();
-
-    traderJoesTable.innerHTML = '';
-    costcoTable.innerHTML = '';
-
-    traderJoesProducts.forEach(product => {
-        const row = document.createElement('tr');
-        const nameCell = document.createElement('td');
-        const usdPriceCell = document.createElement('td');
-        const twdPriceCell = document.createElement('td');
-
-        nameCell.textContent = product.name;
-        usdPriceCell.textContent = product.usdPrice;
-        twdPriceCell.textContent = (product.usdPrice * rate + 200).toFixed(2);
-
-        row.appendChild(nameCell);
-        row.appendChild(usdPriceCell);
-        row.appendChild(twdPriceCell);
-        traderJoesTable.appendChild(row);
+function populateTable(tableId, products) {
+    const table = document.getElementById(tableId);
+    table.innerHTML = "";
+    products.forEach(product => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+            <td class="twd-price"></td>
+        `;
+        table.appendChild(row);
     });
+    convertPrices(); // 預設顯示台幣價格
+}
 
-    costcoProducts.forEach(product => {
-        const row = document.createElement('tr');
-        const nameCell = document.createElement('td');
-        const usdPriceCell = document.createElement('td');
-        const twdPriceCell = document.createElement('td');
-
-        nameCell.textContent = product.name;
-        usdPriceCell.textContent = product.usdPrice;
-        twdPriceCell.textContent = (product.usdPrice * rate + 200).toFixed(2);
-
-        row.appendChild(nameCell);
-        row.appendChild(usdPriceCell);
-        row.appendChild(twdPriceCell);
-        costcoTable.appendChild(row);
+function convertPrices() {
+    const rate = parseFloat(document.getElementById("exchangeRate").value);
+    document.querySelectorAll(".twd-price").forEach((td, index) => {
+        const usdPrice = parseFloat(td.previousElementSibling.textContent);
+        td.textContent = `NT$ ${(usdPrice * rate+200).toFixed(2)}`;
     });
 }
