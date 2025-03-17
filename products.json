@@ -1,0 +1,15 @@
+{
+    "traderJoes": [
+        { "name": "商品1", "price": 2.29 },
+        { "name": "商品2", "price": 1.99 },
+        { "name": "商品3", "price": 4.49 },
+        { "name": "商品4", "price": 3.99 },
+        { "name": "商品5", "price": 2.79 }
+    ],
+    "costco": [
+        { "name": "商品A", "price": 13.99 },
+        { "name": "商品B", "price": 12.49 },
+        { "name": "商品C", "price": 12.49 },
+        { "name": "商品D", "price": 16.99 }
+    ]
+}
