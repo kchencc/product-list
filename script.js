@@ -13,6 +13,7 @@ function populateTable(tableId, products) {
     products.forEach(product => {
         const row = document.createElement("tr");
         row.innerHTML = `
+            <td><img src="${product.image}" alt="${product.name}" width="50"></td>
             <td>${product.name}</td>
             <td>${product.price}</td>
             <td class="twd-price"></td>
@@ -26,6 +27,7 @@ function convertPrices() {
     const rate = parseFloat(document.getElementById("exchangeRate").value);
     document.querySelectorAll(".twd-price").forEach((td, index) => {
         const usdPrice = parseFloat(td.previousElementSibling.textContent);
-        td.textContent = `NT$ ${(usdPrice * rate+200).toFixed(2)}`;
+        const twdPrice = Math.round(usdPrice * rate + 200);
+        td.textContent = `NT$ ${twdPrice}`;
     });
 }
