@@ -1,15 +1,42 @@
 {
-    "traderJoes": [
-        { "name": "商品1", "price": 2.29 },
-        { "name": "商品2", "price": 1.99 },
-        { "name": "商品3", "price": 4.49 },
-        { "name": "商品4", "price": 3.99 },
-        { "name": "商品5", "price": 2.79 }
-    ],
-    "costco": [
-        { "name": "商品A", "price": 13.99 },
-        { "name": "商品B", "price": 12.49 },
-        { "name": "商品C", "price": 12.49 },
-        { "name": "商品D", "price": 16.99 }
-    ]
+  "traderJoes": [
+    {
+      "name": "超好吃巧克力捲心酥",
+      "price": 2.29
+    },
+    {
+      "name": "比利時黑巧克力餅乾條",
+      "price": 1.99
+    },
+    {
+      "name": "蜜糖山核桃",
+      "price": 4.49
+    },
+    {
+      "name": "可可粉",
+      "price": 3.99
+    },
+    {
+      "name": "綜合堅果起司脆餅",
+      "price": 2.79
+    }
+  ],
+  "costco": [
+    {
+      "name": "L'il Critters Omega-3 DHA 魚油軟糖 220顆",
+      "price": 13.99
+    },
+    {
+      "name": "Lil Critters 美國銷售第ㄧ小熊軟綜合糖維他命",
+      "price": 12.49
+    },
+    {
+      "name": "商品C",
+      "price": 12.49
+    },
+    {
+      "name": "商品D",
+      "price": 16.99
+    }
+  ]
 }
