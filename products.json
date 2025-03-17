@@ -3,49 +3,49 @@
     {
       "name": "超好吃巧克力捲心酥",
       "price": 2.29,
-      "image": "images/image1.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image1.jpg"
     },
     {
       "name": "比利時黑巧克力餅乾條",
       "price": 2.29,
-      "image": "images/image2.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image2.jpg"
     },
     {
       "name": "蜜糖山核桃",
       "price": 4.49,
-      "image": "images/image3.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image3.jpg"
     },
     {
       "name": "可可粉",
       "price": 3.99,
-      "image": "images/image4.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image4.jpg"
     },
     {
       "name": "綜合堅果起司脆餅",
       "price": 2.79,
-      "image": "images/image5.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image5.jpg"
     }
   ],
   "costco": [
     {
       "name": "L'il Critters Omega-3 DHA 魚油軟糖 220顆",
       "price": 13.99,
-      "image": "images/image6.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image6.jpg"
     },
     {
       "name": "Lil Critters 美國銷售第ㄧ小熊軟綜合糖維他命",
       "price": 12.49,
-      "image": "images/image7.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image7.jpg"
     },
     {
       "name": "商品C",
       "price": 12.49,
-      "image": "images/image8.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image8.jpg"
     },
     {
       "name": "商品D",
       "price": 16.99,
-      "image": "images/image9.jpg"
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image9.jpg"
     }
   ]
 }
