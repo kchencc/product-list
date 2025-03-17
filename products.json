@@ -3,49 +3,49 @@
     {
       "name": "超好吃巧克力捲心酥",
       "price": 2.29,
-      "image": "path/to/image1.jpg"
+      "image": "images/image1.jpg"
     },
     {
       "name": "比利時黑巧克力餅乾條",
       "price": 2.29,
-      "image": "path/to/image2.jpg"
+      "image": "images/image2.jpg"
     },
     {
       "name": "蜜糖山核桃",
       "price": 4.49,
-      "image": "path/to/image3.jpg"
+      "image": "images/image3.jpg"
     },
     {
       "name": "可可粉",
       "price": 3.99,
-      "image": "path/to/image4.jpg"
+      "image": "images/image4.jpg"
     },
     {
       "name": "綜合堅果起司脆餅",
       "price": 2.79,
-      "image": "path/to/image5.jpg"
+      "image": "images/image5.jpg"
     }
   ],
   "costco": [
     {
       "name": "L'il Critters Omega-3 DHA 魚油軟糖 220顆",
       "price": 13.99,
-      "image": "path/to/image6.jpg"
+      "image": "images/image6.jpg"
     },
     {
       "name": "Lil Critters 美國銷售第ㄧ小熊軟綜合糖維他命",
       "price": 12.49,
-      "image": "path/to/image7.jpg"
+      "image": "images/image7.jpg"
     },
     {
       "name": "商品C",
       "price": 12.49,
-      "image": "path/to/image8.jpg"
+      "image": "images/image8.jpg"
     },
     {
       "name": "商品D",
       "price": 16.99,
-      "image": "path/to/image9.jpg"
+      "image": "images/image9.jpg"
     }
   ]
 }
