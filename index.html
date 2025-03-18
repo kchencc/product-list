@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>美國代購商品列表</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        th:nth-child(3), td:nth-child(3) {
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <h1>美國代購商品</h1>
@@ -19,30 +14,10 @@
     <button onclick="convertPrices()">更新價格</button>
 
     <h2>Trader Joe's 商品</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>圖片</th>
-                <th>項目</th>
-                <th>單價（美金）</th>
-                <th>單價（台幣）</th>
-            </tr>
-        </thead>
-        <tbody id="traderJoesTable"></tbody>
-    </table>
+    <div id="traderJoesGrid" class="product-grid"></div>
 
     <h2>Costco 商品</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>圖片</th>
-                <th>項目</th>
-                <th>單價（美金）</th>
-                <th>單價（台幣）</th>
-            </tr>
-        </thead>
-        <tbody id="costcoTable"></tbody>
-    </table>
+    <div id="costcoGrid" class="product-grid"></div>
 
     <!-- 模態框結構 -->
     <div id="imageModal" class="modal">

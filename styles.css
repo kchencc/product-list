@@ -1,13 +1,51 @@
-.product-image {
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    transition: transform 0.3s;
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
 }
 
-    .product-image:hover {
-        transform: scale(1.1);
+/* 商品列表容器：每行 5 個商品 */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 一行五個商品 */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* 單個商品卡片 */
+.product-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+    .product-card:hover {
+        transform: scale(1.05);
     }
+
+/* 商品圖片 */
+.product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* 價格與售價 */
+.price {
+    font-weight: bold;
+    color: #333;
+}
+
+.sale-price {
+    font-weight: bold;
+    color: #d9534f;
+}
 
 /* 模態框（放大圖片） */
 .modal {
