@@ -3,25 +3,25 @@
     {
       "name": "超好吃巧克力捲心酥",
       "price": 2.29,
-      "salePrice": 0,
+      "salePrice": 125,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image1.jpg"
     },
     {
       "name": "比利時黑巧克力餅乾條",
       "price": 2.29,
-      "salePrice": 0,
+      "salePrice": 125,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image2.jpg"
     },
     {
       "name": "蜜糖山核桃",
       "price": 4.49,
-      "salePrice": 0,
+      "salePrice": 230,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image3.jpg"
     },
     {
       "name": "可可粉",
       "price": 3.99,
-      "salePrice": 0,
+      "salePrice": 220,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image4.jpg"
     },
     {
@@ -29,32 +29,80 @@
       "price": 2.79,
       "salePrice": 0,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image5.jpg"
+    },
+    {
+      "name": "小包裝 黑巧克力 椒鹽捲餅 71g",
+      "price": 1.19,
+      "salePrice": 0,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image8.jpg"
+    },
+    {
+      "name": "萊姆辣椒墨西哥玉米片餅乾",
+      "price": 2.99,
+      "salePrice": 220,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image9.jpg"
+    },
+    {
+      "name": "迷你蝴蝶餅乾 牛奶巧克力",
+      "price": 3.99,
+      "salePrice": 250,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image13.jpg"
+    },
+    {
+      "name": "迷你蝴蝶餅乾 黑巧克力",
+      "price": 3.99,
+      "salePrice": 280,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image14.jpg"
+    },
+    {
+      "name": "黑巧克力海鹽杏仁蝴蝶餅",
+      "price": 5.49,
+      "salePrice": 300,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image15.jpg"
+    },
+    {
+      "name": "蘋果肉桂餅乾",
+      "price": 2.29,
+      "salePrice": 140,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image16.jpg"
+    },
+    {
+      "name": "Rice Cracker星星米餅",
+      "price": 1.99,
+      "salePrice": 120,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image17.jpg"
     }
   ],
   "costco": [
     {
       "name": "L'il Critters Omega-3 DHA 魚油軟糖 220顆",
       "price": 13.99,
-      "salePrice": 0,
+      "salePrice": 630,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image6.jpg"
     },
     {
-      "name": "Lil Critters 美國銷售第ㄧ小熊軟綜合糖維他命",
+      "name": "L'il Critters 美國銷售第ㄧ小熊軟綜合糖維他命",
       "price": 12.49,
-      "salePrice": 0,
+      "salePrice": 600,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image7.jpg"
     },
     {
-      "name": "商品C",
+      "name": "L'il Critters 小熊軟糖維生素C+鋅+D 290顆",
       "price": 12.49,
-      "salePrice": 0,
-      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image8.jpg"
+      "salePrice": 630,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image12.jpg"
+    },    
+    {
+      "name": "nature-s-bounty膠原蛋白-草莓味軟糖230粒",
+      "price": 16.99,
+      "salePrice": 700,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image10.jpg"
     },
     {
-      "name": "商品D",
-      "price": 16.99,
-      "salePrice": 0,
-      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image9.jpg"
+      "name": "維骨力",
+      "price": 23.99,
+      "salePrice": 950,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image11.jpg"
     }
   ]
 }

@@ -25,6 +25,7 @@ function populateGrid(gridId, products) {
             <p class="price">美金: $${product.price.toFixed(2)}</p>
             <p class="twd-price"></p>
             <p class="sale-price">售價: NT$ ${product.salePrice}</p>
+            <p class="price-diff"></p>
         `;
         grid.appendChild(item);
     });
@@ -34,9 +35,20 @@ function populateGrid(gridId, products) {
 // 計算並顯示台幣價格（四捨五入）
 function convertPrices() {
     const rate = parseFloat(document.getElementById("exchangeRate").value);
-    document.querySelectorAll(".twd-price").forEach(td => {
-        const usdPrice = parseFloat(td.previousElementSibling.textContent.replace("美金: $", ""));
-        td.textContent = `台幣: NT$ ${Math.round(usdPrice * rate)}`; // 四捨五入
+    document.querySelectorAll(".product-card").forEach(card => {
+        const usdPrice = parseFloat(card.querySelector(".price").textContent.replace("美金: $", ""));
+        let twdPrice = Math.round(usdPrice * rate);
+
+        // 如果是 Costco 商品，台幣價格還需乘以 1.1 州稅
+        if (card.parentElement.id === "costcoGrid") {
+            twdPrice = Math.round(twdPrice * 1.1);
+        }
+
+        card.querySelector(".twd-price").textContent = `台幣: NT$ ${twdPrice}`;
+
+        const salePrice = parseFloat(card.querySelector(".sale-price").textContent.replace("售價: NT$ ", ""));
+        const priceDiff = Math.round(salePrice - twdPrice);
+        card.querySelector(".price-diff").textContent = `差價: NT$ ${priceDiff}`;
     });
 }
 
