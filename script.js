@@ -151,11 +151,13 @@ function closeImageModal() {
 // 打開購物車彈出視窗
 function openCart() {
     document.getElementById("cartModal").style.display = "block";
+    document.querySelector(".modal-overlay").style.display = "block"; // 確保背景顯示
 }
 
 // 關閉購物車彈出視窗
 function closeCart() {
     document.getElementById("cartModal").style.display = "none";
+    document.querySelector(".modal-overlay").style.display = "none";
 }
 
 // 確保點擊視窗外部時可以關閉
