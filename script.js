@@ -27,13 +27,13 @@ function categorizeAndPopulateGrid(products, view) {
     const household = [];
 
     products.forEach(product => {
-        if (product.name.includes("巧克力") || product.name.includes("米餅") ||
+        if (product.name.includes("咖啡") || product.name.includes("茶") ||
+            product.name.includes("可可粉") || product.name.includes("巧克力榛果研磨咖啡粉")) {
+            coffeeTea.push(product); 
+        } else if (product.name.includes("巧克力") || product.name.includes("米餅") ||
             product.name.includes("餅乾") || product.name.includes("脆餅") || product.name.includes("糖")) {
             candySnacks.push(product);
-        } else if (product.name.includes("咖啡") || product.name.includes("茶") ||
-            product.name.includes("可可粉") || product.name.includes("巧克力榛果研磨咖啡粉")) {
-            coffeeTea.push(product);
-        } else if (product.name.includes("保養") || product.name.includes("護膚") || product.name.includes("身體")) {
+        } else if (product.name.includes("化妝水") || product.name.includes("保養") || product.name.includes("護膚") ||  product.name.includes("身體")) {
             skincare.push(product);
         } else {
             household.push(product);
@@ -69,6 +69,7 @@ function populateGrid(gridId, products, view) {
                 <p class="sale-price">售價: NT$ ${product.salePrice}</p>
             `;
         }
+        item.dataset.tax = product.tax; // 將 tax 屬性存儲在 data-tax 屬性中
         grid.appendChild(item);
     });
     if (view === 'seller') {
@@ -81,12 +82,8 @@ function convertPrices() {
     const rate = parseFloat(document.getElementById("exchangeRate").value);
     document.querySelectorAll(".product-card").forEach(card => {
         const usdPrice = parseFloat(card.querySelector(".price").textContent.replace("美金: $", ""));
-        let twdPrice = Math.round(usdPrice * rate);
-
-        // 如果是 Costco 商品，台幣價格還需乘以 1.1 州稅
-        if (card.parentElement.id === "costcoGrid") {
-            twdPrice = Math.round(twdPrice * 1.1);
-        }
+        const tax = parseFloat(card.dataset.tax); // 獲取 tax 屬性
+        let twdPrice = Math.round(usdPrice * rate * tax); // 將台幣價格乘以 tax
 
         card.querySelector(".twd-price").textContent = `台幣: NT$ ${twdPrice}`;
 
@@ -103,3 +100,4 @@ function showImage(imageSrc) {
     modal.style.display = "block";
     modalImage.src = imageSrc;
 }
+
