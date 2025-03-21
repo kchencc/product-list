@@ -31,7 +31,7 @@
     {
       "name": "水果軟糖",
       "price": 1.99,
-      "salePrice": 80,
+      "salePrice": 90,
       "tax": 1.0,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image22.jpg"
     },
