@@ -25,6 +25,7 @@ function categorizeAndPopulateGrid(products, view) {
     const coffeeTea = [];
     const skincare = [];
     const household = [];
+    const spices = [];
 
     products.forEach(product => {
         if (product.name.includes("咖啡") || product.name.includes("茶") ||
@@ -33,8 +34,10 @@ function categorizeAndPopulateGrid(products, view) {
         } else if (product.name.includes("巧克力") || product.name.includes("米餅") ||
             product.name.includes("餅乾") || product.name.includes("脆餅") || product.name.includes("糖")) {
             candySnacks.push(product);
-        } else if (product.name.includes("化妝水") || product.name.includes("保養") || product.name.includes("護膚") ||  product.name.includes("身體")) {
+        } else if (product.name.includes("面霜") ||  product.name.includes("化妝水") || product.name.includes("保養") || product.name.includes("護膚") ||  product.name.includes("身體")) {
             skincare.push(product);
+        } else if (product.name.includes("香料")) {
+            spices.push(product);
         } else {
             household.push(product);
         }
@@ -44,6 +47,7 @@ function categorizeAndPopulateGrid(products, view) {
     populateGrid("coffeeTeaGrid", coffeeTea, view);
     populateGrid("skincareGrid", skincare, view);
     populateGrid("householdGrid", household, view);
+    populateGrid("spicesGrid", spices, view);
 }
 
 // 填充商品網格
