@@ -147,3 +147,21 @@ function closeCart() {
 function closeImageModal() {
     document.getElementById("imageModal").style.display = "none";
 }
+
+// 打開購物車彈出視窗
+function openCart() {
+    document.getElementById("cartModal").style.display = "block";
+}
+
+// 關閉購物車彈出視窗
+function closeCart() {
+    document.getElementById("cartModal").style.display = "none";
+}
+
+// 確保點擊視窗外部時可以關閉
+window.onclick = function (event) {
+    let modal = document.getElementById("cartModal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
