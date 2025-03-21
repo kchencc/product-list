@@ -1,9 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const view = urlParams.get('view') || 'customer'; // 默認為客戶視圖
+
+    if (view === 'seller') {
+        document.getElementById("sellerControls").style.display = "block";
+    }
+
     fetch("products.json")
         .then(response => response.json())
         .then(data => {
-            populateGrid("traderJoesGrid", data.traderJoes);
-            populateGrid("costcoGrid", data.costco);
+            populateGrid("traderJoesGrid", data.traderJoes, view);
+            populateGrid("costcoGrid", data.costco, view);
         });
 
     // 點擊模態框關閉
@@ -13,19 +20,33 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 填充商品網格
-function populateGrid(gridId, products) {
+function populateGrid(gridId, products, view) {
     const grid = document.getElementById(gridId);
     grid.innerHTML = "";
     products.forEach(product => {
         const item = document.createElement("div");
         item.classList.add("product-card");
-        item.innerHTML = `
-            <img src="${product.image}" class="product-image" onclick="showImage('${product.image}')" alt="${product.name}">
-            <p>${product.name}</p>
-            <p class="sale-price">售價: NT$ ${product.salePrice}</p>
-        `;
+        if (view === 'seller') {
+            item.innerHTML = `
+                <img src="${product.image}" class="product-image" onclick="showImage('${product.image}')" alt="${product.name}">
+                <p>${product.name}</p>
+                <p class="price">美金: $${product.price.toFixed(2)}</p>
+                <p class="twd-price"></p>
+                <p class="sale-price">售價: NT$ ${product.salePrice}</p>
+                <p class="price-diff"></p>
+            `;
+        } else {
+            item.innerHTML = `
+                <img src="${product.image}" class="product-image" onclick="showImage('${product.image}')" alt="${product.name}">
+                <p>${product.name}</p>
+                <p class="sale-price">售價: NT$ ${product.salePrice}</p>
+            `;
+        }
         grid.appendChild(item);
     });
+    if (view === 'seller') {
+        convertPrices(); // 預設顯示台幣價格
+    }
 }
 
 // 計算並顯示台幣價格（四捨五入）
