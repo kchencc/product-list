@@ -27,9 +27,11 @@ function categorizeAndPopulateGrid(products, view) {
     const household = [];
 
     products.forEach(product => {
-        if (product.name.includes("巧克力") || product.name.includes("餅乾") || product.name.includes("糖")) {
+        if (product.name.includes("巧克力") || product.name.includes("米餅") ||
+            product.name.includes("餅乾") || product.name.includes("脆餅") || product.name.includes("糖")) {
             candySnacks.push(product);
-        } else if (product.name.includes("咖啡") || product.name.includes("茶")) {
+        } else if (product.name.includes("咖啡") || product.name.includes("茶") ||
+            product.name.includes("可可粉") || product.name.includes("巧克力榛果研磨咖啡粉")) {
             coffeeTea.push(product);
         } else if (product.name.includes("保養") || product.name.includes("護膚") || product.name.includes("身體")) {
             skincare.push(product);
