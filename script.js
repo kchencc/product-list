@@ -22,14 +22,10 @@ function populateGrid(gridId, products) {
         item.innerHTML = `
             <img src="${product.image}" class="product-image" onclick="showImage('${product.image}')" alt="${product.name}">
             <p>${product.name}</p>
-            <p class="price">美金: $${product.price.toFixed(2)}</p>
-            <p class="twd-price"></p>
             <p class="sale-price">售價: NT$ ${product.salePrice}</p>
-            <p class="price-diff"></p>
         `;
         grid.appendChild(item);
     });
-    convertPrices(); // 預設顯示台幣價格
 }
 
 // 計算並顯示台幣價格（四捨五入）

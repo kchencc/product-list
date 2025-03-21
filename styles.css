@@ -96,6 +96,6 @@ body {
 
 @media (max-width: 576px) {
     .product-grid {
-        grid-template-columns: 1fr; /* 一行一個商品 */
+        grid-template-columns: repeat(2, 1fr); /* 一行兩個商品 */
     }
 }
