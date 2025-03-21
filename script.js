@@ -59,6 +59,7 @@ function populateGrid(gridId, products, view) {
                 <p>${product.name}</p>
                 <p class="price">美金: $${product.price.toFixed(2)}</p>
                 <p class="twd-price"></p>
+                <p class="tax">稅: $ ${product.tax}</p>
                 <p class="sale-price">售價: NT$ ${product.salePrice}</p>
                 <p class="price-diff"></p>
             `;
