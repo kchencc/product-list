@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("products.json")
         .then(response => response.json())
         .then(data => {
-            populateGrid("traderJoesGrid", data.traderJoes, view);
+            categorizeAndPopulateGrid(data.traderJoes, view);
             populateGrid("costcoGrid", data.costco, view);
         });
 
@@ -18,6 +18,31 @@ document.addEventListener("DOMContentLoaded", function () {
         this.style.display = "none";
     });
 });
+
+// 根據商品名稱進行分類並填充商品網格
+function categorizeAndPopulateGrid(products, view) {
+    const candySnacks = [];
+    const coffeeTea = [];
+    const skincare = [];
+    const household = [];
+
+    products.forEach(product => {
+        if (product.name.includes("巧克力") || product.name.includes("餅乾") || product.name.includes("糖")) {
+            candySnacks.push(product);
+        } else if (product.name.includes("咖啡") || product.name.includes("茶")) {
+            coffeeTea.push(product);
+        } else if (product.name.includes("保養") || product.name.includes("護膚") || product.name.includes("身體")) {
+            skincare.push(product);
+        } else {
+            household.push(product);
+        }
+    });
+
+    populateGrid("candySnacksGrid", candySnacks, view);
+    populateGrid("coffeeTeaGrid", coffeeTea, view);
+    populateGrid("skincareGrid", skincare, view);
+    populateGrid("householdGrid", household, view);
+}
 
 // 填充商品網格
 function populateGrid(gridId, products, view) {

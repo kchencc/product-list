@@ -1,6 +1,12 @@
 {
   "traderJoes": [
     {
+      "name": "購物袋-起司冒險",
+      "price": 4.389,
+      "salePrice": 210,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image21.jpg"
+    },
+    {
       "name": "超好吃巧克力捲心酥",
       "price": 2.29,
       "salePrice": 130,
@@ -19,10 +25,10 @@
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image3.jpg"
     },
     {
-      "name": "可可粉",
-      "price": 3.99,
-      "salePrice": 220,
-      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image4.jpg"
+      "name": "水果軟糖",
+      "price": 1.99,
+      "salePrice": 80,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image22.jpg"
     },
     {
       "name": "綜合堅果起司脆餅",
@@ -73,6 +79,12 @@
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image17.jpg"
     },
     {
+      "name": "可可粉",
+      "price": 3.99,
+      "salePrice": 220,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image4.jpg"
+    },
+    {
       "name": "巧克力榛果研磨咖啡粉",
       "price": 7.49,
       "salePrice": 400,
@@ -80,8 +92,8 @@
     },
     {
       "name": "有機中度烘焙咖啡粉",
-      "price":6.99,
-      "salePrice":400,
+      "price": 6.99,
+      "salePrice": 400,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image19.jpg"
     }
   ],
