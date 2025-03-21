@@ -3,13 +3,13 @@
     {
       "name": "超好吃巧克力捲心酥",
       "price": 2.29,
-      "salePrice": 125,
+      "salePrice": 130,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image1.jpg"
     },
     {
       "name": "比利時黑巧克力餅乾條",
       "price": 2.29,
-      "salePrice": 125,
+      "salePrice": 130,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image2.jpg"
     },
     {
@@ -51,7 +51,7 @@
     {
       "name": "迷你蝴蝶餅乾 黑巧克力",
       "price": 3.99,
-      "salePrice": 280,
+      "salePrice": 250,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image14.jpg"
     },
     {
@@ -71,6 +71,18 @@
       "price": 1.99,
       "salePrice": 120,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image17.jpg"
+    },
+    {
+      "name": "巧克力榛果研磨咖啡粉",
+      "price": 7.49,
+      "salePrice": 400,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image18.jpg"
+    },
+    {
+      "name": "有機中度烘焙咖啡粉",
+      "price":6.99,
+      "salePrice":400,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image19.jpg"
     }
   ],
   "costco": [
@@ -91,7 +103,7 @@
       "price": 12.49,
       "salePrice": 630,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image12.jpg"
-    },    
+    },
     {
       "name": "nature-s-bounty膠原蛋白-草莓味軟糖230粒",
       "price": 16.99,
@@ -103,6 +115,12 @@
       "price": 23.99,
       "salePrice": 950,
       "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image11.jpg"
+    },
+    {
+      "name": "B群",
+      "price": 22.99,
+      "salePrice": 900,
+      "image": "https://raw.githubusercontent.com/kchencc/product-list/refs/heads/man/Images/image20.jpg"
     }
   ]
 }
