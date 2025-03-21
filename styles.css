@@ -75,6 +75,24 @@ body {
     cursor: pointer;
 }
 
+/* 購物車彈出窗口 */
+#cartModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 20px;
+}
+
+#cartItems {
+    margin: 20px 0;
+}
+
 /* 媒體查詢：針對不同屏幕大小進行調整 */
 @media (max-width: 1200px) {
     .product-grid {

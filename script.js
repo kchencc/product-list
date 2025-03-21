@@ -30,11 +30,11 @@ function categorizeAndPopulateGrid(products, view) {
     products.forEach(product => {
         if (product.name.includes("咖啡") || product.name.includes("茶") ||
             product.name.includes("可可粉") || product.name.includes("巧克力榛果研磨咖啡粉")) {
-            coffeeTea.push(product); 
+            coffeeTea.push(product);
         } else if (product.name.includes("巧克力") || product.name.includes("米餅") ||
             product.name.includes("餅乾") || product.name.includes("脆餅") || product.name.includes("糖")) {
             candySnacks.push(product);
-        } else if (product.name.includes("面霜") ||  product.name.includes("化妝水") || product.name.includes("保養") || product.name.includes("護膚") ||  product.name.includes("身體")) {
+        } else if (product.name.includes("面霜") || product.name.includes("化妝水") || product.name.includes("保養") || product.name.includes("護膚") || product.name.includes("身體")) {
             skincare.push(product);
         } else if (product.name.includes("香料")) {
             spices.push(product);
@@ -66,12 +66,14 @@ function populateGrid(gridId, products, view) {
                 <p class="tax">稅: $ ${product.tax}</p>
                 <p class="sale-price">售價: NT$ ${product.salePrice}</p>
                 <p class="price-diff"></p>
+                <button onclick="addToCart('${product.name}', ${product.salePrice})">加入購物車</button>
             `;
         } else {
             item.innerHTML = `
                 <img src="${product.image}" class="product-image" onclick="showImage('${product.image}')" alt="${product.name}">
                 <p>${product.name}</p>
                 <p class="sale-price">售價: NT$ ${product.salePrice}</p>
+                <button onclick="addToCart('${product.name}', ${product.salePrice})">加入購物車</button>
             `;
         }
         item.dataset.tax = product.tax; // 將 tax 屬性存儲在 data-tax 屬性中
@@ -106,3 +108,42 @@ function showImage(imageSrc) {
     modalImage.src = imageSrc;
 }
 
+// 購物車功能
+let cart = [];
+
+function addToCart(name, price) {
+    cart.push({ name, price });
+    alert(`${name} 已加入購物車`);
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById("cartItems");
+    cartItems.innerHTML = "";
+    cart.forEach((item, index) => {
+        const cartItem = document.createElement("div");
+        cartItem.innerHTML = `
+            <p>${item.name} - NT$ ${item.price}</p>
+            <button onclick="removeFromCart(${index})">移除</button>
+        `;
+        cartItems.appendChild(cartItem);
+    });
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function checkout() {
+    // 這裡可以集成支付處理服務
+    alert("結帳功能尚未實現");
+}
+
+function closeCart() {
+    document.getElementById("cartModal").style.display = "none";
+}
+
+function closeImageModal() {
+    document.getElementById("imageModal").style.display = "none";
+}

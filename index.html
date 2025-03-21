@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>美國代購商品 (2025/4月中到貨)</h1>
+    <h1>美國代購商品</h1>
 
     <div id="sellerControls" style="display: none;">
         <label for="exchangeRate">台幣匯率：</label>
@@ -30,9 +30,17 @@
     <h2>Costco 商品</h2>
     <div id="costcoGrid" class="product-grid"></div>
 
+    <!-- 購物車彈出窗口 -->
+    <div id="cartModal" class="modal">
+        <span class="close" onclick="closeCart()">&times;</span>
+        <h2>購物車</h2>
+        <div id="cartItems"></div>
+        <button onclick="checkout()">結帳</button>
+    </div>
+
     <!-- 模態框結構 -->
     <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
+        <span class="close" onclick="closeImageModal()">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
 
