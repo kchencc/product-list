@@ -140,8 +140,10 @@ function checkout() {
     alert("結帳功能尚未實現");
 }
 
+// 關閉購物車彈出視窗
 function closeCart() {
     document.getElementById("cartModal").style.display = "none";
+    document.querySelector(".modal-overlay").style.display = "none";
 }
 
 function closeImageModal() {
@@ -154,11 +156,6 @@ function openCart() {
     document.querySelector(".modal-overlay").style.display = "block"; // 確保背景顯示
 }
 
-// 關閉購物車彈出視窗
-function closeCart() {
-    document.getElementById("cartModal").style.display = "none";
-    document.querySelector(".modal-overlay").style.display = "none";
-}
 
 // 確保點擊視窗外部時可以關閉
 window.onclick = function (event) {
