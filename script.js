@@ -113,48 +113,42 @@ function showImage(imageSrc) {
 
 // 購物車功能
 let cart = [];
-
-// 加入購物車
-function addToCart(name, price) {
-    let item = cart.find(i => i.name === name);
-    if (item) {
-        item.quantity += 1;
-    } else {
-        cart.push({ name, price, quantity: 1 });
-    }
-    alert(`${name} 已加入購物車`);
-    updateCart();
-}
-
-// 更新購物車顯示
+// 更新購物車顯示（每個相同商品獨立顯示）
 function updateCart() {
     const cartItems = document.getElementById("cartItems");
     cartItems.innerHTML = "";
     let totalAmount = 0;
+
     cart.forEach((item, index) => {
-        totalAmount += item.price * item.quantity;
-        const cartItem = document.createElement("div");
-        cartItem.innerHTML = `
-            <p>${item.name} - NT$ ${item.price} x ${item.quantity} 
-                <button onclick="changeQuantity(${index}, -1)">-</button>
-                <button onclick="changeQuantity(${index}, 1)">+</button>
-            </p>
-        `;
-        cartItems.appendChild(cartItem);
+        for (let i = 0; i < item.quantity; i++) {
+            totalAmount += item.price;
+            const cartItem = document.createElement("div");
+            cartItem.innerHTML = `
+                <p>${item.name} - NT$ ${item.price} 
+                    <button onclick="removeItem(${index})">刪除</button>
+                </p>
+            `;
+            cartItems.appendChild(cartItem);
+        }
     });
+
     document.getElementById("totalAmount").textContent = `總金額: NT$ ${totalAmount}`;
 }
 
-// 調整購物車數量
-function changeQuantity(index, amount) {
-    cart[index].quantity += amount;
-    if (cart[index].quantity <= 0) {
-        cart.splice(index, 1);
-    }
+// 加入購物車（維持數量，但顯示時逐筆列出）
+function addToCart(name, price) {
+    cart.push({ name, price, quantity: 1 });
+    alert(`${name} 已加入購物車`);
     updateCart();
 }
 
-// 複製購物車清單
+// 移除單筆商品
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+// 複製購物車清單（逐筆展開）
 function copyCart() {
     let cartText = "";
     cart.forEach(item => {
