@@ -138,7 +138,7 @@ function updateCart() {
 // 加入購物車（維持數量，但顯示時逐筆列出）
 function addToCart(name, price) {
     cart.push({ name, price, quantity: 1 });
-    alert(`${name} 已加入購物車`);
+   /* alert(`${name} 已加入購物車`);*/
     updateCart();
 }
 
