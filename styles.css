@@ -82,9 +82,9 @@ body {
 .cart-modal {
     display: none;
     position: fixed; /* 固定位置 */
-    bottom: 20px; /* 距離底部20px */
-    right: 20px; /* 距離右邊20px */
-    width: 300px; /* 設定寬度 */
+    /*bottom: 20px;*/ /* 距離底部20px */
+    /*right: 20px;*/ /* 距離右邊20px */
+    /*width: 300px;*/ /* 設定寬度 */
     height: auto;
     /*height: 400px;*/ /* 設定高度 */
     background-color: white; /* 背景顏色 */
