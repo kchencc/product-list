@@ -63,7 +63,7 @@ function populateGrid(gridId, products, view) {
                 <p>${product.name}</p>
                 <p class="price">美金: $${product.price.toFixed(2)}</p>
                 <p class="twd-price"></p>
-                <p class="tax">稅率: $ ${product.tax}</p>
+                <p class="tax">稅: $ ${product.tax}</p>
                 <p class="sale-price">售價: NT$ ${product.salePrice}</p>
                 <p class="price-diff"></p>
                 <button onclick="addToCart('${product.name}', ${product.salePrice})">加入購物車</button>
@@ -120,14 +120,16 @@ function addToCart(name, price) {
 function updateCart() {
     const cartItems = document.getElementById("cartItems");
     cartItems.innerHTML = "";
+    let totalAmount = 0;
     cart.forEach((item, index) => {
+        totalAmount += item.price;
         const cartItem = document.createElement("div");
         cartItem.innerHTML = `
-            <p>${item.name} - NT$ ${item.price}</p>
-            <button onclick="removeFromCart(${index})">移除</button>
+            <p>${item.name} - NT$ ${item.price} <button onclick="removeFromCart(${index})">移除</button></p>
         `;
         cartItems.appendChild(cartItem);
     });
+    document.getElementById("totalAmount").textContent = `總金額: NT$ ${totalAmount}`;
 }
 
 function removeFromCart(index) {
@@ -135,32 +137,30 @@ function removeFromCart(index) {
     updateCart();
 }
 
+function copyCart() {
+    let cartText = "";
+    cart.forEach(item => {
+        cartText += `${item.name} - NT$ ${item.price}\n`;
+    });
+    cartText += `總金額: ${document.getElementById("totalAmount").textContent}`;
+    navigator.clipboard.writeText(cartText).then(() => {
+        alert("購物車清單已複製");
+    });
+}
+
 function checkout() {
     // 這裡可以集成支付處理服務
     alert("結帳功能尚未實現");
 }
 
-// 關閉購物車彈出視窗
 function closeCart() {
     document.getElementById("cartModal").style.display = "none";
-    document.querySelector(".modal-overlay").style.display = "none";
 }
 
 function closeImageModal() {
     document.getElementById("imageModal").style.display = "none";
 }
 
-// 打開購物車彈出視窗
-function openCart() {
-    document.getElementById("cartModal").style.display = "block";
-    document.querySelector(".modal-overlay").style.display = "block"; // 確保背景顯示
+function returnToIndex() {
+    window.location.href = "index.html";
 }
-
-
-// 確保點擊視窗外部時可以關閉
-window.onclick = function (event) {
-    let modal = document.getElementById("cartModal");
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
-};
