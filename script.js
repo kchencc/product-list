@@ -143,7 +143,7 @@ function addToCart(name, price) {
 }
 
 // 移除單筆商品
-function removeItem(index) {
+function removeFromCart(index) {
     cart.splice(index, 1);
     updateCart();
 }
