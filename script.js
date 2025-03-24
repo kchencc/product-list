@@ -119,20 +119,20 @@ function updateCart() {
     cartItems.innerHTML = "";
     let totalAmount = 0;
 
-    cart.forEach((item, index) => {
+    // 依照商品名稱排序購物車
+    const sortedCart = cart.slice().sort((a, b) => a.name.localeCompare(b.name));
+
+    sortedCart.forEach((item, index) => {
         for (let i = 0; i < item.quantity; i++) {
             totalAmount += item.price;
             const cartItem = document.createElement("div");
-            cartItem.innerHTML = `
-                <p>${item.name} - NT$ ${item.price} 
-                    <button onclick="removeItem(${index})">刪除</button>
-                </p>
-            `;
+            cartItem.innerHTML = `<p>${item.name} - NT$ ${item.price}<button class="remove-btn" onclick="removeFromCart(${index})">X</button></p>`;
             cartItems.appendChild(cartItem);
         }
     });
 
     document.getElementById("totalAmount").textContent = `總金額: NT$ ${totalAmount}`;
+    openCart();
 }
 
 // 加入購物車（維持數量，但顯示時逐筆列出）
