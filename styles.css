@@ -81,7 +81,7 @@ body {
 /* 優化購物車彈窗樣式 */
 .cart-modal {
     display: none;
-    position: fixed; /* 固定位置 */
+    /*position: fixed;*/ /* 固定位置 */
     /*bottom: 20px;*/ /* 距離底部20px */
     /*right: 20px;*/ /* 距離右邊20px */
     /*width: 300px;*/ /* 設定寬度 */
@@ -159,8 +159,9 @@ body {
     }*/
 
 #cartItems {
-    margin: 20px 0;
-    height: 300px; /* 設定顯示商品區域的高度 */
+    /* margin: 20px 0;
+    height: 300px; */ /* 設定顯示商品區域的高度 */
+    max-height: 600px;
     overflow-y: auto; /* 讓這部分內容超過時可滾動 */
 }
 

@@ -138,7 +138,7 @@ function updateCart() {
 // 加入購物車（維持數量，但顯示時逐筆列出）
 function addToCart(name, price) {
     cart.push({ name, price, quantity: 1 });
-   /* alert(`${name} 已加入購物車`);*/
+    /* alert(`${name} 已加入購物車`);*/
     updateCart();
 }
 
@@ -162,7 +162,7 @@ function copyCart() {
         }
     });
 
-    cartText += `總金額: ${document.getElementById("totalAmount").textContent}`;
+    cartText += ` ${document.getElementById("totalAmount").textContent}`;
 
     navigator.clipboard.writeText(cartText).then(() => {
         alert("購物車清單已複製，請再貼到Line筆記本中提醒我，謝謝。");
@@ -193,6 +193,13 @@ function makeCartDraggable() {
 
     document.addEventListener("mouseup", () => {
         isDragging = false;
+    });
+
+
+    // 監聽捲動事件，更新購物車位置
+    window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        cartModal.style.top = (10 + scrollTop) + "px";
     });
 }
 
