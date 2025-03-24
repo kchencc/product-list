@@ -85,7 +85,7 @@ body {
     bottom: 20px; /* 距離底部20px */
     right: 20px; /* 距離右邊20px */
     width: 300px; /* 設定寬度 */
-    height: 400px; /* 設定高度 */
+    /*height: 400px;*/ /* 設定高度 */
     background-color: white; /* 背景顏色 */
     border: 1px solid #ccc; /* 邊框 */
     border-radius: 10px; /* 圓角邊框，調整數值可以改變圓角的大小 */
