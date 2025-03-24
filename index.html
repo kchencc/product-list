@@ -32,13 +32,13 @@
     <div id="costcoGrid" class="product-grid"></div>
 
     <!-- 購物車彈出窗口 -->
-    <div id="cartModal" class="modal">
+    <div id="cartModal" class="cart-modal">
         <span class="close" onclick="closeCart()">&times;</span>
         <h2>購物車</h2>
         <div id="cartItems"></div>
         <p id="totalAmount">總金額: NT$ 0</p>
         <button onclick="copyCart()">複製清單</button>
-        <button id="checkoutButton" style="display: none;" onclick="checkout()">結帳</button>
+        <!--<button id="checkoutButton" onclick="checkout()">結帳</button>-->
         <button onclick="returnToIndex()">返回</button>
     </div>
 

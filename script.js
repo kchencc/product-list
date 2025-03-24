@@ -112,8 +112,12 @@ function showImage(imageSrc) {
 let cart = [];
 
 function addToCart(name, price) {
-    cart.push({ name, price });
-    alert(`${name} 已加入購物車`);
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
     updateCart();
 }
 
@@ -122,18 +126,25 @@ function updateCart() {
     cartItems.innerHTML = "";
     let totalAmount = 0;
     cart.forEach((item, index) => {
-        totalAmount += item.price;
+        totalAmount += item.price * item.quantity;
         const cartItem = document.createElement("div");
         cartItem.innerHTML = `
-            <p>${item.name} - NT$ ${item.price} <button onclick="removeFromCart(${index})">移除</button></p>
-        `;
+                <p>${item.name} - NT$ ${item.price} x ${item.quantity} 
+                    <button onclick="changeQuantity(${index}, -1)">-</button>
+                    <button onclick="changeQuantity(${index}, 1)">+</button>
+                </p>
+            `;
         cartItems.appendChild(cartItem);
     });
     document.getElementById("totalAmount").textContent = `總金額: NT$ ${totalAmount}`;
-    document.getElementById("cartModal").style.display = "block"; // 顯示購物車彈出窗口
+    document.getElementById("cartModal").style.display = "block";
 }
-function removeFromCart(index) {
-    cart.splice(index, 1);
+
+function changeQuantity(index, change) {
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
     updateCart();
 }
 
