@@ -165,7 +165,7 @@ function copyCart() {
     cartText += `總金額: ${document.getElementById("totalAmount").textContent}`;
 
     navigator.clipboard.writeText(cartText).then(() => {
-        alert("購物車清單已複製，請貼到Line筆記本中，謝謝。");
+        alert("購物車清單已複製，請再貼到Line筆記本中提醒我，謝謝。");
     });
 }
 

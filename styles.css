@@ -80,16 +80,17 @@ body {
 
 /* 優化購物車彈窗樣式 */
 .cart-modal {
-    display: none;
-    position: absolute;
-    width: 300px;
-    background: white;
-    color: black;
-    padding: 20px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    top: 10px;
-    right: 10px;
+    position: fixed; /* 固定位置 */
+    bottom: 20px; /* 距離底部20px */
+    right: 20px; /* 距離右邊20px */
+    width: 300px; /* 設定寬度 */
+    height: 400px; /* 設定高度 */
+    background-color: white; /* 背景顏色 */
+    border: 1px solid #ccc; /* 邊框 */
+    padding: 10px; /* 內邊距 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+    z-index: 1000; /* 確保它顯示在最上層 */
+    overflow-y: auto; /* 如果內容過多，顯示滾動條 */
 }
 
     /* 購物車關閉按鈕樣式 */
