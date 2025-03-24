@@ -17,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("imageModal").addEventListener("click", function () {
         this.style.display = "none";
     });
+
+    // 讓購物車可以拖曳
+    makeCartDraggable();
 });
 
 // 根據商品名稱進行分類並填充商品網格
@@ -111,16 +114,19 @@ function showImage(imageSrc) {
 // 購物車功能
 let cart = [];
 
+// 加入購物車
 function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name);
-    if (existingItem) {
-        existingItem.quantity += 1;
+    let item = cart.find(i => i.name === name);
+    if (item) {
+        item.quantity += 1;
     } else {
         cart.push({ name, price, quantity: 1 });
     }
+    alert(`${name} 已加入購物車`);
     updateCart();
 }
 
+// 更新購物車顯示
 function updateCart() {
     const cartItems = document.getElementById("cartItems");
     cartItems.innerHTML = "";
@@ -129,29 +135,32 @@ function updateCart() {
         totalAmount += item.price * item.quantity;
         const cartItem = document.createElement("div");
         cartItem.innerHTML = `
-                <p>${item.name} - NT$ ${item.price} x ${item.quantity} 
-                    <button onclick="changeQuantity(${index}, -1)">-</button>
-                    <button onclick="changeQuantity(${index}, 1)">+</button>
-                </p>
-            `;
+            <p>${item.name} - NT$ ${item.price} x ${item.quantity} 
+                <button onclick="changeQuantity(${index}, -1)">-</button>
+                <button onclick="changeQuantity(${index}, 1)">+</button>
+            </p>
+        `;
         cartItems.appendChild(cartItem);
     });
     document.getElementById("totalAmount").textContent = `總金額: NT$ ${totalAmount}`;
-    document.getElementById("cartModal").style.display = "block";
 }
 
-function changeQuantity(index, change) {
-    cart[index].quantity += change;
+// 調整購物車數量
+function changeQuantity(index, amount) {
+    cart[index].quantity += amount;
     if (cart[index].quantity <= 0) {
         cart.splice(index, 1);
     }
     updateCart();
 }
 
+// 複製購物車清單
 function copyCart() {
     let cartText = "";
     cart.forEach(item => {
-        cartText += `${item.name} - NT$ ${item.price}\n`;
+        for (let i = 0; i < item.quantity; i++) {
+            cartText += `${item.name} - NT$ ${item.price}\n`;
+        }
     });
     cartText += `總金額: ${document.getElementById("totalAmount").textContent}`;
     navigator.clipboard.writeText(cartText).then(() => {
@@ -159,11 +168,39 @@ function copyCart() {
     });
 }
 
-function checkout() {
-    // 這裡可以集成支付處理服務
-    alert("結帳功能尚未實現");
+// 讓購物車可拖曳
+function makeCartDraggable() {
+    const cartModal = document.getElementById("cartModal");
+    cartModal.style.position = "absolute";
+    cartModal.style.top = "10px";
+    cartModal.style.right = "10px";
+
+    let offsetX, offsetY, isDragging = false;
+
+    cartModal.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        offsetX = e.clientX - cartModal.offsetLeft;
+        offsetY = e.clientY - cartModal.offsetTop;
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+            cartModal.style.left = e.clientX - offsetX + "px";
+            cartModal.style.top = e.clientY - offsetY + "px";
+        }
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+    });
 }
 
+// 開啟購物車
+function openCart() {
+    document.getElementById("cartModal").style.display = "block";
+}
+
+// 關閉購物車
 function closeCart() {
     document.getElementById("cartModal").style.display = "none";
 }
