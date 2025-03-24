@@ -148,15 +148,22 @@ function removeItem(index) {
     updateCart();
 }
 
-// 複製購物車清單（逐筆展開）
+// 複製購物車清單（依商品名稱排序，逐筆顯示）
 function copyCart() {
     let cartText = "";
-    cart.forEach(item => {
+
+    // 依 name 排序
+    const sortedCart = [...cart].sort((a, b) => a.name.localeCompare(b.name));
+
+    // 逐筆展開顯示
+    sortedCart.forEach(item => {
         for (let i = 0; i < item.quantity; i++) {
             cartText += `${item.name} - NT$ ${item.price}\n`;
         }
     });
+
     cartText += `總金額: ${document.getElementById("totalAmount").textContent}`;
+
     navigator.clipboard.writeText(cartText).then(() => {
         alert("購物車清單已複製");
     });
