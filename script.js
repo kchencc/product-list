@@ -130,8 +130,8 @@ function updateCart() {
         cartItems.appendChild(cartItem);
     });
     document.getElementById("totalAmount").textContent = `總金額: NT$ ${totalAmount}`;
+    document.getElementById("cartModal").style.display = "block"; // 顯示購物車彈出窗口
 }
-
 function removeFromCart(index) {
     cart.splice(index, 1);
     updateCart();
