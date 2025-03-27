@@ -113,6 +113,7 @@ function showImage(imageSrc) {
 
 // 購物車功能
 let cart = [];
+
 // 更新購物車顯示（每個相同商品獨立顯示）
 function updateCart() {
     const cartItems = document.getElementById("cartItems");
@@ -123,12 +124,13 @@ function updateCart() {
     const sortedCart = cart.slice().sort((a, b) => a.name.localeCompare(b.name));
 
     sortedCart.forEach((item, index) => {
-        for (let i = 0; i < item.quantity; i++) {
-            totalAmount += item.price;
-            const cartItem = document.createElement("div");
-            cartItem.innerHTML = `<p>${item.name} - NT$ ${item.price}<button class="remove-btn" onclick="removeFromCart(${index})">X</button></p>`;
-            cartItems.appendChild(cartItem);
-        }
+        totalAmount += item.price * item.quantity;
+        const cartItem = document.createElement("div");
+        cartItem.innerHTML = `<p>${item.name} x${item.quantity} - NT$ ${item.price * item.quantity}
+                              <button onclick="updateQuantity(${index}, -1)">-</button>
+                              <button onclick="updateQuantity(${index}, 1)">+</button>
+                              <button class="remove-btn" onclick="removeFromCart(${index})">X</button></p>`;
+        cartItems.appendChild(cartItem);
     });
 
     document.getElementById("totalAmount").textContent = `總金額: NT$ ${totalAmount}`;
@@ -137,8 +139,22 @@ function updateCart() {
 
 // 加入購物車（維持數量，但顯示時逐筆列出）
 function addToCart(name, price) {
-    cart.push({ name, price, quantity: 1 });
-    /* alert(`${name} 已加入購物車`);*/
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        cart.push({ name, price, quantity: 1 });
+    }
+    updateCart();
+}
+
+// 更新商品數量
+function updateQuantity(index, change) {
+    const item = cart[index];
+    item.quantity += change;
+    if (item.quantity <= 0) {
+        cart.splice(index, 1); // 移除數量為零的商品
+    }
     updateCart();
 }
 
@@ -194,7 +210,6 @@ function makeCartDraggable() {
     document.addEventListener("mouseup", () => {
         isDragging = false;
     });
-
 
     // 監聽捲動事件，更新購物車位置
     window.addEventListener("scroll", () => {
